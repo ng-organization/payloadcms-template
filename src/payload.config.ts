@@ -1,11 +1,12 @@
 // storage-adapter-import-placeholder
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 
-import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
+import sharp from 'sharp' // sharp-import
 import { fileURLToPath } from 'url'
 
+import { defaultLexical } from '@/fields/defaultLexical'
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
@@ -13,8 +14,8 @@ import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
+import localization from './i18n/localization'
 import { plugins } from './plugins'
-import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 
 const filename = fileURLToPath(import.meta.url)
@@ -91,15 +92,5 @@ export default buildConfig({
     },
     tasks: [],
   },
-  localization: {
-    locales: [{
-      code: 'en',
-      label: 'English',
-    }, {
-      code: 'zh',
-      label: '中文',
-    }],
-    defaultLocale: 'en',
-    fallback: true,
-  }
+  localization,
 })

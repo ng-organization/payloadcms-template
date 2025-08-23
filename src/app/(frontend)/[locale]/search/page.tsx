@@ -2,7 +2,7 @@ import type { Metadata } from 'next/types'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
 import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+import { getPayload, TypedLocale } from 'payload'
 import React from 'react'
 import { Search } from '@/search/Component'
 import PageClient from './page.client'
@@ -12,15 +12,20 @@ type Args = {
   searchParams: Promise<{
     q: string
   }>
+  params: Promise<{
+    locale: TypedLocale
+  }>
 }
-export default async function Page({ searchParams: searchParamsPromise }: Args) {
+export default async function Page({ searchParams: searchParamsPromise, params: paramsPromise }: Args) {
   const { q: query } = await searchParamsPromise
+  const { locale } = await paramsPromise
   const payload = await getPayload({ config: configPromise })
 
   const posts = await payload.find({
     collection: 'search',
     depth: 1,
     limit: 12,
+    locale,
     select: {
       title: true,
       slug: true,

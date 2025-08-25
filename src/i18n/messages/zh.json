@@ -12,5 +12,27 @@
   "dashboard": "仪表盘",
   "previous": "上一页",
   "next": "下一页",
-  "more-pages": "更多页面"
+  "more-pages": "更多页面",
+  "contact-form": {
+    "title": "联系我们",
+    "subtitle": "给我们发送消息，我们会尽快回复您。",
+    "name": "姓名",
+    "email": "邮箱",
+    "message": "消息",
+    "name-placeholder": "您的全名",
+    "email-placeholder": "your.email@example.com",
+    "message-placeholder": "告诉我们您的咨询内容...",
+    "send-message": "发送消息",
+    "sending": "发送中...",
+    "required": "必填",
+    "success-message": "感谢您的消息！我们会尽快回复您。",
+    "validation": {
+      "name-required": "姓名为必填项",
+      "name-min-length": "姓名至少需要2个字符",
+      "email-required": "邮箱为必填项",
+      "email-invalid": "邮箱格式无效",
+      "message-required": "消息为必填项",
+      "message-min-length": "消息至少需要10个字符"
+    }
+  }
 }

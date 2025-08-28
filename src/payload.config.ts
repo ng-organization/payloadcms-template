@@ -7,13 +7,9 @@ import sharp from 'sharp' // sharp-import
 import { fileURLToPath } from 'url'
 
 import { defaultLexical } from '@/fields/defaultLexical'
-import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
-import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
-import { Footer } from './Footer/config'
-import { Header } from './Header/config'
 import localization from './i18n/localization'
 import { plugins } from './plugins'
 import { getServerSideURL } from './utilities/getURL'
@@ -23,14 +19,7 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
-    components: {
-      // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below.
-      // beforeLogin: ['@/components/BeforeLogin'],
-      // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below.
-      // beforeDashboard: ['@/components/BeforeDashboard'],
-    },
+    components: {},
     importMap: {
       baseDir: path.resolve(dirname),
     },
@@ -66,9 +55,9 @@ export default buildConfig({
       authToken: process.env.DATABASE_AUTH_TOKEN || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Media, Users],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [],
   plugins: [
     ...plugins,
     // storage-adapter-placeholder

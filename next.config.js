@@ -19,6 +19,10 @@ const nextConfig = {
           protocol: url.protocol.replace(':', ''),
         }
       }),
+      {
+        hostname: process.env.R2_CUSTOM_DOMAIN,
+        protocol: 'https',
+      },
     ],
   },
   webpack: (webpackConfig) => {

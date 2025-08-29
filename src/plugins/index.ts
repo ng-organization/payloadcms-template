@@ -2,6 +2,7 @@ import { revalidateRedirects } from '@/hooks/revalidateRedirects'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
+import { s3Storage } from '@payloadcms/storage-s3'
 import { Plugin } from 'payload'
 
 import { Page } from '@/payload-types'
@@ -43,5 +44,24 @@ export const plugins: Plugin[] = [
   seoPlugin({
     generateTitle,
     generateURL,
-  })
+  }),
+  s3Storage({
+    collections: {
+      media: {
+        disableLocalStorage: true,
+        prefix: 'media',
+        generateFileURL: ({ filename, prefix }) =>
+          `https://${process.env.R2_CUSTOM_DOMAIN}/${prefix}/${filename}`,
+      },
+    },
+    bucket: process.env.S3_BUCKET_NAME || '',
+    config: {
+      endpoint: process.env.S3_ENDPOINT || '',
+      credentials: {
+        accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
+        secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
+      },
+      region: 'auto',
+    },
+  }),
 ]

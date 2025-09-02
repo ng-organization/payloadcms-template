@@ -132,7 +132,7 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ContactFormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ContactFormBlock | Team1Block)[];
   meta?: {
     title?: string | null;
     /**
@@ -348,6 +348,25 @@ export interface ContactFormBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'contactForm';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Team1Block".
+ */
+export interface Team1Block {
+  title: string;
+  description: string;
+  members?:
+    | {
+        name: string;
+        role: string;
+        avatar: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'team1';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -569,6 +588,7 @@ export interface PagesSelect<T extends boolean = true> {
         content?: T | ContentBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
         contactForm?: T | ContactFormBlockSelect<T>;
+        team1?: T | Team1BlockSelect<T>;
       };
   meta?:
     | T
@@ -649,6 +669,24 @@ export interface MediaBlockSelect<T extends boolean = true> {
  */
 export interface ContactFormBlockSelect<T extends boolean = true> {
   emailTo?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Team1Block_select".
+ */
+export interface Team1BlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  members?:
+    | T
+    | {
+        name?: T;
+        role?: T;
+        avatar?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

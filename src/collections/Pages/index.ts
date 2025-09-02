@@ -10,6 +10,7 @@ import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
+import { Team1 } from '../../blocks/Team/Team1/config'
 
 import {
   MetaDescriptionField,
@@ -70,7 +71,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, ContactForm],
+              blocks: [CallToAction, Content, MediaBlock, ContactForm, Team1],
               required: true,
               admin: {
                 initCollapsed: true,

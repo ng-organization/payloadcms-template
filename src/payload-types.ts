@@ -132,7 +132,7 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ContactFormBlock | Team1Block)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ContactFormBlock | Team1Block | Feature1Block)[];
   meta?: {
     title?: string | null;
     /**
@@ -370,6 +370,25 @@ export interface Team1Block {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Feature1Block".
+ */
+export interface Feature1Block {
+  title: string;
+  description: string;
+  features?:
+    | {
+        title: string;
+        description: string;
+        image: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'feature1';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -589,6 +608,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         contactForm?: T | ContactFormBlockSelect<T>;
         team1?: T | Team1BlockSelect<T>;
+        feature1?: T | Feature1BlockSelect<T>;
       };
   meta?:
     | T
@@ -685,6 +705,24 @@ export interface Team1BlockSelect<T extends boolean = true> {
         name?: T;
         role?: T;
         avatar?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Feature1Block_select".
+ */
+export interface Feature1BlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  features?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
         id?: T;
       };
   id?: T;

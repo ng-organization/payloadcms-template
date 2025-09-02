@@ -7,6 +7,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ContactFormBlock } from './Forms/ContactForm/Component'
 import { Team1Block } from './Team/Team1/Component'
+import { Feature1Block } from './Features/Feature1/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -14,6 +15,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   contactForm: ContactFormBlock,
   team1: Team1Block,
+  feature1: Feature1Block,
 }
 
 export const RenderBlocks: React.FC<{

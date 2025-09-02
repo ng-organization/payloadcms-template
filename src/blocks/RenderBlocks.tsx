@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
 
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
+import { CTA1Block } from '@/blocks/CallToAction/CTA1/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ContactFormBlock } from './Forms/ContactForm/Component'
@@ -12,7 +12,7 @@ import { Testimonial1Block } from './Testimonials/Testimonial1/Component'
 
 const blockComponents = {
   content: ContentBlock,
-  cta: CallToActionBlock,
+  cta1: CTA1Block,
   mediaBlock: MediaBlock,
   contactForm: ContactFormBlock,
   team1: Team1Block,

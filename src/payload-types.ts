@@ -132,15 +132,7 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
-  layout: (
-    | CallToActionBlock
-    | ContentBlock
-    | MediaBlock
-    | ContactFormBlock
-    | Team1Block
-    | Feature1Block
-    | Testimonial1Block
-  )[];
+  layout: (CTA1Block | ContentBlock | MediaBlock | ContactFormBlock | Team1Block | Feature1Block | Testimonial1Block)[];
   meta?: {
     title?: string | null;
     /**
@@ -158,24 +150,10 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock".
+ * via the `definition` "CTA1Block".
  */
-export interface CallToActionBlock {
-  richText?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
+export interface CTA1Block {
+  title: string;
   links?:
     | {
         link: {
@@ -197,7 +175,7 @@ export interface CallToActionBlock {
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'cta';
+  blockType: 'cta1';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -631,7 +609,7 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        cta?: T | CallToActionBlockSelect<T>;
+        cta1?: T | CTA1BlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
         contactForm?: T | ContactFormBlockSelect<T>;
@@ -655,10 +633,10 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock_select".
+ * via the `definition` "CTA1Block_select".
  */
-export interface CallToActionBlockSelect<T extends boolean = true> {
-  richText?: T;
+export interface CTA1BlockSelect<T extends boolean = true> {
+  title?: T;
   links?:
     | T
     | {

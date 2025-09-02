@@ -3,7 +3,7 @@ import type { CollectionConfig } from 'payload'
 import { slugField } from '@/fields/slug'
 import { authenticated } from '../../access/authenticated'
 import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
-import { CallToAction } from '../../blocks/CallToAction/config'
+import { CTA1 } from '../../blocks/CallToAction/CTA1/config'
 import { Content } from '../../blocks/Content/config'
 import { Feature1 } from '../../blocks/Features/Feature1/config'
 import { ContactForm } from '../../blocks/Forms/ContactForm/config'
@@ -72,7 +72,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, ContactForm, Team1, Feature1, Testimonial1],
+              blocks: [CTA1, Content, MediaBlock, ContactForm, Team1, Feature1, Testimonial1],
               required: true,
               admin: {
                 initCollapsed: true,

@@ -132,7 +132,15 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ContactFormBlock | Team1Block | Feature1Block)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ContactFormBlock
+    | Team1Block
+    | Feature1Block
+    | Testimonial1Block
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -389,6 +397,26 @@ export interface Feature1Block {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Testimonial1Block".
+ */
+export interface Testimonial1Block {
+  title: string;
+  description: string;
+  testimonials?:
+    | {
+        testimonial: string;
+        author: string;
+        avatar?: (number | null) | Media;
+        position?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonial1';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -609,6 +637,7 @@ export interface PagesSelect<T extends boolean = true> {
         contactForm?: T | ContactFormBlockSelect<T>;
         team1?: T | Team1BlockSelect<T>;
         feature1?: T | Feature1BlockSelect<T>;
+        testimonial1?: T | Testimonial1BlockSelect<T>;
       };
   meta?:
     | T
@@ -723,6 +752,25 @@ export interface Feature1BlockSelect<T extends boolean = true> {
         title?: T;
         description?: T;
         image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Testimonial1Block_select".
+ */
+export interface Testimonial1BlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  testimonials?:
+    | T
+    | {
+        testimonial?: T;
+        author?: T;
+        avatar?: T;
+        position?: T;
         id?: T;
       };
   id?: T;

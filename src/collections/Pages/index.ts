@@ -1,18 +1,18 @@
 import type { CollectionConfig } from 'payload'
 
+import { slugField } from '@/fields/slug'
 import { authenticated } from '../../access/authenticated'
 import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
-import { MediaBlock } from '../../blocks/MediaBlock/config'
+import { Feature1 } from '../../blocks/Features/Feature1/config'
 import { ContactForm } from '../../blocks/Forms/ContactForm/config'
-import { slugField } from '@/fields/slug'
+import { MediaBlock } from '../../blocks/MediaBlock/config'
+import { Team1 } from '../../blocks/Team/Team1/config'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
-import { Team1 } from '../../blocks/Team/Team1/config'
-import { Feature1 } from '../../blocks/Features/Feature1/config'
-
+import { Testimonial1 } from '@/blocks/Testimonials/Testimonial1/config'
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -72,7 +72,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, ContactForm, Team1, Feature1],
+              blocks: [CallToAction, Content, MediaBlock, ContactForm, Team1, Feature1, Testimonial1],
               required: true,
               admin: {
                 initCollapsed: true,

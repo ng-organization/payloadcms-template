@@ -9,6 +9,7 @@ import { ContactFormBlock } from './Forms/ContactForm/Component'
 import { Team1Block } from './Team/Team1/Component'
 import { Feature1Block } from './Features/Feature1/Component'
 import { Testimonial1Block } from './Testimonials/Testimonial1/Component'
+import { FAQ1Block } from './FAQ/FAQ1/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -18,6 +19,7 @@ const blockComponents = {
   team1: Team1Block,
   feature1: Feature1Block,
   testimonial1: Testimonial1Block,
+  faq1: FAQ1Block,
 }
 
 export const RenderBlocks: React.FC<{

@@ -1,6 +1,15 @@
 import type { CollectionConfig } from 'payload'
 
+import { FAQ1 } from '@/blocks/FAQ/FAQ1/config'
+import { Testimonial1 } from '@/blocks/Testimonials/Testimonial1/config'
 import { slugField } from '@/fields/slug'
+import {
+  MetaDescriptionField,
+  MetaImageField,
+  MetaTitleField,
+  OverviewField,
+  PreviewField,
+} from '@payloadcms/plugin-seo/fields'
 import { authenticated } from '../../access/authenticated'
 import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { CTA1 } from '../../blocks/CallToAction/CTA1/config'
@@ -12,14 +21,6 @@ import { Team1 } from '../../blocks/Team/Team1/config'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
-import { Testimonial1 } from '@/blocks/Testimonials/Testimonial1/config'
-import {
-  MetaDescriptionField,
-  MetaImageField,
-  MetaTitleField,
-  OverviewField,
-  PreviewField,
-} from '@payloadcms/plugin-seo/fields'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -72,7 +73,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CTA1, Content, MediaBlock, ContactForm, Team1, Feature1, Testimonial1],
+              blocks: [CTA1, Content, MediaBlock, ContactForm, Team1, Feature1, Testimonial1, FAQ1],
               required: true,
               admin: {
                 initCollapsed: true,

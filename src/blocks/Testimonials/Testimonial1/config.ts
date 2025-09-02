@@ -32,6 +32,7 @@ export const Testimonial1: Block = {
           type: 'text',
           localized: true,
           required: true,
+          defaultValue: 'Client Name',
         },
         {
           name: 'avatar',

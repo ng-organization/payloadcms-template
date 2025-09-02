@@ -18,7 +18,7 @@ import type {
   MediaBlock as MediaBlockProps,
 } from '@/payload-types'
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
-import { cn } from '@/utilities/ui'
+import { cn } from '@/lib/utils'
 
 type NodeTypes =
   | DefaultNodeTypes

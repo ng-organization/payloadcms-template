@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { cn } from '@/utilities/ui'
+import { cn } from '@/lib/utils'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import React from 'react'
@@ -15,7 +15,7 @@ import { getServerSideURL } from '@/utilities/getURL'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import { TypedLocale } from 'payload'
-import './globals.css'
+import '@/app/globals.css'
 
 type Args = {
   children: React.ReactNode

@@ -8,7 +8,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination'
-import { cn } from '@/utilities/ui'
+import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
@@ -32,10 +32,15 @@ export const Pagination: React.FC<{
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
-              disabled={!hasPrevPage}
-              onClick={() => {
-                router.push(`/posts/page/${page - 1}`)
-              }}
+              aria-disabled={!hasPrevPage}
+              onClick={
+                hasPrevPage
+                  ? () => {
+                      router.push(`/posts/page/${page - 1}`)
+                    }
+                  : undefined
+              }
+              className={!hasPrevPage ? 'pointer-events-none opacity-50' : ''}
             />
           </PaginationItem>
 
@@ -88,10 +93,15 @@ export const Pagination: React.FC<{
 
           <PaginationItem>
             <PaginationNext
-              disabled={!hasNextPage}
-              onClick={() => {
-                router.push(`/posts/page/${page + 1}`)
-              }}
+              aria-disabled={!hasNextPage}
+              onClick={
+                hasNextPage
+                  ? () => {
+                      router.push(`/posts/page/${page + 1}`)
+                    }
+                  : undefined
+              }
+              className={!hasNextPage ? 'pointer-events-none opacity-50' : ''}
             />
           </PaginationItem>
         </PaginationContent>

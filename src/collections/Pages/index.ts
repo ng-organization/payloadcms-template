@@ -6,6 +6,7 @@ import { Hero2 } from '@/blocks/Hero/Hero2/config'
 import { Stat1 } from '@/blocks/Stats/Stat1/config'
 import { Stat2 } from '@/blocks/Stats/Stat2/config'
 import { Testimonial1 } from '@/blocks/Testimonials/Testimonial1/config'
+import { Testimonial2 } from '@/blocks/Testimonials/Testimonial2/config'
 import { slugField } from '@/fields/slug'
 import {
   MetaDescriptionField,
@@ -85,6 +86,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 Team1,
                 Feature1,
                 Testimonial1,
+                Testimonial2,
                 FAQ1,
                 Hero1,
                 Hero2,

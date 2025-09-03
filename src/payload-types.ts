@@ -140,6 +140,7 @@ export interface Page {
     | Team1Block
     | Feature1Block
     | Testimonial1Block
+    | Testimonial2Block
     | FAQ1Block
     | Hero1Block
     | Hero2Block
@@ -405,6 +406,18 @@ export interface Testimonial1Block {
   id?: string | null;
   blockName?: string | null;
   blockType: 'testimonial1';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Testimonial2Block".
+ */
+export interface Testimonial2Block {
+  testimonial: string;
+  author: string;
+  avatar?: (number | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonial2';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -742,6 +755,7 @@ export interface PagesSelect<T extends boolean = true> {
         team1?: T | Team1BlockSelect<T>;
         feature1?: T | Feature1BlockSelect<T>;
         testimonial1?: T | Testimonial1BlockSelect<T>;
+        testimonial2?: T | Testimonial2BlockSelect<T>;
         faq1?: T | FAQ1BlockSelect<T>;
         hero1?: T | Hero1BlockSelect<T>;
         hero2?: T | Hero2BlockSelect<T>;
@@ -882,6 +896,17 @@ export interface Testimonial1BlockSelect<T extends boolean = true> {
         position?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Testimonial2Block_select".
+ */
+export interface Testimonial2BlockSelect<T extends boolean = true> {
+  testimonial?: T;
+  author?: T;
+  avatar?: T;
   id?: T;
   blockName?: T;
 }

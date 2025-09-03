@@ -143,6 +143,7 @@ export interface Page {
     | FAQ1Block
     | Hero1Block
     | Hero2Block
+    | Stat1Block
   )[];
   meta?: {
     title?: string | null;
@@ -486,6 +487,22 @@ export interface Hero2Block {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Stat1Block".
+ */
+export interface Stat1Block {
+  stats?:
+    | {
+        title: string;
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'stat1';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -710,6 +727,7 @@ export interface PagesSelect<T extends boolean = true> {
         faq1?: T | FAQ1BlockSelect<T>;
         hero1?: T | Hero1BlockSelect<T>;
         hero2?: T | Hero2BlockSelect<T>;
+        stat1?: T | Stat1BlockSelect<T>;
       };
   meta?:
     | T
@@ -912,6 +930,21 @@ export interface Hero2BlockSelect<T extends boolean = true> {
               label?: T;
               appearance?: T;
             };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Stat1Block_select".
+ */
+export interface Stat1BlockSelect<T extends boolean = true> {
+  stats?:
+    | T
+    | {
+        title?: T;
+        value?: T;
         id?: T;
       };
   id?: T;

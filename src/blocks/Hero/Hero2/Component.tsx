@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Hero2Block as Hero2BlockProps } from '@/payload-types'
-import Image from 'next/image'
+import Image from '@/components/PayloadImage'
 import Link from 'next/link'
 
 export function Hero2Block({ title, description, image, links }: Hero2BlockProps) {
@@ -41,9 +41,7 @@ export function Hero2Block({ title, description, image, links }: Hero2BlockProps
             <div className="relative z-10 mx-auto max-w-5xl px-6">
               <div className="mt-12 md:mt-16">
                 <div className="bg-background rounded-(--radius) relative mx-auto overflow-hidden border border-transparent shadow-lg shadow-black/10 ring-1 ring-black/10">
-                  {typeof image === 'object' && image.url && (
-                    <Image src={image.url} alt="app screen" width="2880" height="1842" />
-                  )}
+                  <Image media={image} alt="app screen" width="2880" height="1842" priority/>
                 </div>
               </div>
             </div>

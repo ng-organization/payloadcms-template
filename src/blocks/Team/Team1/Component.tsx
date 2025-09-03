@@ -1,4 +1,4 @@
-import { ImageMedia } from '@/components/Media/ImageMedia'
+import Image from '@/components/PayloadImage'
 import type { Team1Block as Team1BlockProps } from '@/payload-types'
 
 export function Team1Block({ title, description, members }: Team1BlockProps) {
@@ -21,11 +21,12 @@ export function Team1Block({ title, description, members }: Team1BlockProps) {
           <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {membersToDisplay.map((member, index) => (
               <div key={index} className="group overflow-hidden">
-                <ImageMedia
-                  resource={member.avatar}
+                <Image
+                  media={member.avatar}
                   alt="team member"
-                  imgClassName="h-96 w-full rounded-md object-cover object-top grayscale transition-all duration-500 hover:grayscale-0 group-hover:h-[22.5rem] group-hover:rounded-xl"
-                  size="large"
+                  className="h-96 w-full rounded-md object-cover object-top grayscale transition-all duration-500 hover:grayscale-0 group-hover:h-[22.5rem] group-hover:rounded-xl"
+                  height="460"
+                  width="460"
                 />
                 <div className="px-2 pt-2 sm:pb-0 sm:pt-4">
                   <div className="flex justify-between">

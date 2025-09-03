@@ -139,6 +139,7 @@ export interface Page {
     | ContactFormBlock
     | Team1Block
     | Feature1Block
+    | Feature2Block
     | Testimonial1Block
     | Testimonial2Block
     | FAQ1Block
@@ -388,6 +389,28 @@ export interface Feature1Block {
   id?: string | null;
   blockName?: string | null;
   blockType: 'feature1';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Feature2Block".
+ */
+export interface Feature2Block {
+  title: string;
+  /**
+   * The interval in milliseconds to autoplay the carousel.
+   */
+  autoplayInterval?: number | null;
+  features?:
+    | {
+        title: string;
+        description: string;
+        image: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'feature2';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -791,6 +814,7 @@ export interface PagesSelect<T extends boolean = true> {
         contactForm?: T | ContactFormBlockSelect<T>;
         team1?: T | Team1BlockSelect<T>;
         feature1?: T | Feature1BlockSelect<T>;
+        feature2?: T | Feature2BlockSelect<T>;
         testimonial1?: T | Testimonial1BlockSelect<T>;
         testimonial2?: T | Testimonial2BlockSelect<T>;
         faq1?: T | FAQ1BlockSelect<T>;
@@ -908,6 +932,24 @@ export interface Team1BlockSelect<T extends boolean = true> {
 export interface Feature1BlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  features?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Feature2Block_select".
+ */
+export interface Feature2BlockSelect<T extends boolean = true> {
+  title?: T;
+  autoplayInterval?: T;
   features?:
     | T
     | {

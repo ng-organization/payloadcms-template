@@ -9,6 +9,7 @@ import { FAQ1Block } from './FAQ/FAQ1/Component'
 import { FAQ2Block } from './FAQ/FAQ2/Component'
 import { FAQ3Block } from './FAQ/FAQ3/Component'
 import { Feature1Block } from './Features/Feature1/Component'
+import { Feature2Block } from './Features/Feature2/Component'
 import { ContactFormBlock } from './Forms/ContactForm/Component'
 import { Hero1Block } from './Hero/Hero1/Component'
 import { Hero2Block } from './Hero/Hero2/Component'
@@ -25,6 +26,7 @@ const blockComponents = {
   contactForm: ContactFormBlock,
   team1: Team1Block,
   feature1: Feature1Block,
+  feature2: Feature2Block,
   testimonial1: Testimonial1Block,
   testimonial2: Testimonial2Block,
   faq1: FAQ1Block,

@@ -2,7 +2,7 @@ import { Hero1Block as Hero1BlockProps } from '@/payload-types'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
-import Image from 'next/image'
+import Image from '@/components/PayloadImage'
 
 export function Hero1Block({ title, description, image, links }: Hero1BlockProps) {
   const link1 = links?.[0]
@@ -43,16 +43,14 @@ export function Hero1Block({ title, description, image, links }: Hero1BlockProps
           <div className="perspective-near mt-24 translate-x-12 md:absolute md:-right-6 md:bottom-16 md:left-1/2 md:top-40 md:mt-0 md:translate-x-0">
             <div className="before:border-foreground/5 before:bg-foreground/5 relative h-full before:absolute before:-inset-x-4 before:bottom-7 before:top-0 before:skew-x-6 before:rounded-[calc(var(--radius)+1rem)] before:border">
               <div className="bg-background rounded-(--radius) shadow-foreground/10 ring-foreground/5 relative h-full -translate-y-12 skew-x-6 overflow-hidden border border-transparent shadow-md ring-1">
-                {typeof image === 'object' && image.url && (
-                  <Image
-                    src={image.url}
-                    alt="app screen"
-                    priority
-                    width="2880"
-                    height="1842"
-                    className="object-top-left size-full object-cover"
-                  />
-                )}
+                <Image
+                  media={image}
+                  alt="app screen"
+                  priority
+                  width="2880"
+                  height="1842"
+                  className="object-top-left size-full object-cover"
+                />
               </div>
             </div>
           </div>

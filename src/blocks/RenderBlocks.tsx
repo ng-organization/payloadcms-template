@@ -7,6 +7,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { FAQ1Block } from './FAQ/FAQ1/Component'
 import { FAQ2Block } from './FAQ/FAQ2/Component'
+import { FAQ3Block } from './FAQ/FAQ3/Component'
 import { Feature1Block } from './Features/Feature1/Component'
 import { ContactFormBlock } from './Forms/ContactForm/Component'
 import { Hero1Block } from './Hero/Hero1/Component'
@@ -28,6 +29,7 @@ const blockComponents = {
   testimonial2: Testimonial2Block,
   faq1: FAQ1Block,
   faq2: FAQ2Block,
+  faq3: FAQ3Block,
   hero1: Hero1Block,
   hero2: Hero2Block,
   stat1: Stat1Block,

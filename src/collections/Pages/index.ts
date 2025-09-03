@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { FAQ1 } from '@/blocks/FAQ/FAQ1/config'
 import { FAQ2 } from '@/blocks/FAQ/FAQ2/config'
+import { FAQ3 } from '@/blocks/FAQ/FAQ3/config'
 import { Hero1 } from '@/blocks/Hero/Hero1/config'
 import { Hero2 } from '@/blocks/Hero/Hero2/config'
 import { Stat1 } from '@/blocks/Stats/Stat1/config'
@@ -90,6 +91,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 Testimonial2,
                 FAQ1,
                 FAQ2,
+                FAQ3,
                 Hero1,
                 Hero2,
                 Stat1,

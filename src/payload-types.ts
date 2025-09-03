@@ -143,6 +143,7 @@ export interface Page {
     | Testimonial2Block
     | FAQ1Block
     | FAQ2Block
+    | FAQ3Block
     | Hero1Block
     | Hero2Block
     | Stat1Block
@@ -455,6 +456,23 @@ export interface FAQ2Block {
   id?: string | null;
   blockName?: string | null;
   blockType: 'faq2';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQ3Block".
+ */
+export interface FAQ3Block {
+  title: string;
+  faqs?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq3';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -777,6 +795,7 @@ export interface PagesSelect<T extends boolean = true> {
         testimonial2?: T | Testimonial2BlockSelect<T>;
         faq1?: T | FAQ1BlockSelect<T>;
         faq2?: T | FAQ2BlockSelect<T>;
+        faq3?: T | FAQ3BlockSelect<T>;
         hero1?: T | Hero1BlockSelect<T>;
         hero2?: T | Hero2BlockSelect<T>;
         stat1?: T | Stat1BlockSelect<T>;
@@ -954,6 +973,22 @@ export interface FAQ1BlockSelect<T extends boolean = true> {
 export interface FAQ2BlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQ3Block_select".
+ */
+export interface FAQ3BlockSelect<T extends boolean = true> {
+  title?: T;
   faqs?:
     | T
     | {

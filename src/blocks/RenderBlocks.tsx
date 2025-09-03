@@ -11,6 +11,7 @@ import { Feature1Block } from './Features/Feature1/Component'
 import { Testimonial1Block } from './Testimonials/Testimonial1/Component'
 import { FAQ1Block } from './FAQ/FAQ1/Component'
 import { Hero1Block } from './Hero/Hero1/Component'
+import { Hero2Block } from './Hero/Hero2/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -22,6 +23,7 @@ const blockComponents = {
   testimonial1: Testimonial1Block,
   faq1: FAQ1Block,
   hero1: Hero1Block,
+  hero2: Hero2Block,
 }
 
 export const RenderBlocks: React.FC<{

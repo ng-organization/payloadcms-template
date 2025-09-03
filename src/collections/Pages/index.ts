@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { FAQ1 } from '@/blocks/FAQ/FAQ1/config'
 import { Hero1 } from '@/blocks/Hero/Hero1/config'
+import { Hero2 } from '@/blocks/Hero/Hero2/config'
 import { Testimonial1 } from '@/blocks/Testimonials/Testimonial1/config'
 import { slugField } from '@/fields/slug'
 import {
@@ -74,7 +75,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CTA1, Content, MediaBlock, ContactForm, Team1, Feature1, Testimonial1, FAQ1, Hero1],
+              blocks: [CTA1, Content, MediaBlock, ContactForm, Team1, Feature1, Testimonial1, FAQ1, Hero1, Hero2],
               required: true,
               admin: {
                 initCollapsed: true,

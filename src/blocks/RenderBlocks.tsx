@@ -13,6 +13,7 @@ import { FAQ1Block } from './FAQ/FAQ1/Component'
 import { Hero1Block } from './Hero/Hero1/Component'
 import { Hero2Block } from './Hero/Hero2/Component'
 import { Stat1Block } from './Stats/Stat1/Component'
+import { Stat2Block } from './Stats/Stat2/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -26,6 +27,7 @@ const blockComponents = {
   hero1: Hero1Block,
   hero2: Hero2Block,
   stat1: Stat1Block,
+  stat2: Stat2Block,
 }
 
 export const RenderBlocks: React.FC<{

@@ -141,6 +141,7 @@ export interface Page {
     | Feature1Block
     | Testimonial1Block
     | FAQ1Block
+    | Hero1Block
   )[];
   meta?: {
     title?: string | null;
@@ -422,6 +423,37 @@ export interface FAQ1Block {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero1Block".
+ */
+export interface Hero1Block {
+  title: string;
+  description: string;
+  image: number | Media;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero1';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -644,6 +676,7 @@ export interface PagesSelect<T extends boolean = true> {
         feature1?: T | Feature1BlockSelect<T>;
         testimonial1?: T | Testimonial1BlockSelect<T>;
         faq1?: T | FAQ1BlockSelect<T>;
+        hero1?: T | Hero1BlockSelect<T>;
       };
   meta?:
     | T
@@ -794,6 +827,32 @@ export interface FAQ1BlockSelect<T extends boolean = true> {
     | {
         question?: T;
         answer?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero1Block_select".
+ */
+export interface Hero1BlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  image?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
         id?: T;
       };
   id?: T;

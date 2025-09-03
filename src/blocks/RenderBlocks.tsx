@@ -5,16 +5,17 @@ import type { Page } from '@/payload-types'
 import { CTA1Block } from '@/blocks/CallToAction/CTA1/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
-import { ContactFormBlock } from './Forms/ContactForm/Component'
-import { Team1Block } from './Team/Team1/Component'
-import { Feature1Block } from './Features/Feature1/Component'
-import { Testimonial1Block } from './Testimonials/Testimonial1/Component'
-import { Testimonial2Block } from './Testimonials/Testimonial2/Component'
 import { FAQ1Block } from './FAQ/FAQ1/Component'
+import { FAQ2Block } from './FAQ/FAQ2/Component'
+import { Feature1Block } from './Features/Feature1/Component'
+import { ContactFormBlock } from './Forms/ContactForm/Component'
 import { Hero1Block } from './Hero/Hero1/Component'
 import { Hero2Block } from './Hero/Hero2/Component'
 import { Stat1Block } from './Stats/Stat1/Component'
 import { Stat2Block } from './Stats/Stat2/Component'
+import { Team1Block } from './Team/Team1/Component'
+import { Testimonial1Block } from './Testimonials/Testimonial1/Component'
+import { Testimonial2Block } from './Testimonials/Testimonial2/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -26,6 +27,7 @@ const blockComponents = {
   testimonial1: Testimonial1Block,
   testimonial2: Testimonial2Block,
   faq1: FAQ1Block,
+  faq2: FAQ2Block,
   hero1: Hero1Block,
   hero2: Hero2Block,
   stat1: Stat1Block,

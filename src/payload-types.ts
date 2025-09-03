@@ -142,6 +142,7 @@ export interface Page {
     | Testimonial1Block
     | Testimonial2Block
     | FAQ1Block
+    | FAQ2Block
     | Hero1Block
     | Hero2Block
     | Stat1Block
@@ -436,6 +437,24 @@ export interface FAQ1Block {
   id?: string | null;
   blockName?: string | null;
   blockType: 'faq1';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQ2Block".
+ */
+export interface FAQ2Block {
+  title: string;
+  description: string;
+  faqs?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq2';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -757,6 +776,7 @@ export interface PagesSelect<T extends boolean = true> {
         testimonial1?: T | Testimonial1BlockSelect<T>;
         testimonial2?: T | Testimonial2BlockSelect<T>;
         faq1?: T | FAQ1BlockSelect<T>;
+        faq2?: T | FAQ2BlockSelect<T>;
         hero1?: T | Hero1BlockSelect<T>;
         hero2?: T | Hero2BlockSelect<T>;
         stat1?: T | Stat1BlockSelect<T>;
@@ -915,6 +935,23 @@ export interface Testimonial2BlockSelect<T extends boolean = true> {
  * via the `definition` "FAQ1Block_select".
  */
 export interface FAQ1BlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQ2Block_select".
+ */
+export interface FAQ2BlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   faqs?:

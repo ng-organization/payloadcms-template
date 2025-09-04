@@ -11,6 +11,7 @@ import { FAQ3Block } from './FAQ/FAQ3/Component'
 import { Feature1Block } from './Features/Feature1/Component'
 import { Feature2Block } from './Features/Feature2/Component'
 import { ContactFormBlock } from './Forms/ContactForm/Component'
+import { GoogleMapsBlock } from './GoogleMaps/Component'
 import { Hero1Block } from './Hero/Hero1/Component'
 import { Hero2Block } from './Hero/Hero2/Component'
 import { Stat1Block } from './Stats/Stat1/Component'
@@ -36,6 +37,7 @@ const blockComponents = {
   hero2: Hero2Block,
   stat1: Stat1Block,
   stat2: Stat2Block,
+  googleMaps: GoogleMapsBlock,
 }
 
 export const RenderBlocks: React.FC<{

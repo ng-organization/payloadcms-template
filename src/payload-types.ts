@@ -149,6 +149,7 @@ export interface Page {
     | Hero2Block
     | Stat1Block
     | Stat2Block
+    | GoogleMapsBlock
   )[];
   meta?: {
     title?: string | null;
@@ -594,6 +595,32 @@ export interface Stat2Block {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GoogleMapsBlock".
+ */
+export interface GoogleMapsBlock {
+  /**
+   * The zoom level of the map, the higher the number the more zoomed in the map will be
+   */
+  zoom?: number | null;
+  /**
+   * The first place will be used as the default center of the map
+   */
+  places?:
+    | {
+        name: string;
+        address: string;
+        latitude: number;
+        longitude: number;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'googleMaps';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -824,6 +851,7 @@ export interface PagesSelect<T extends boolean = true> {
         hero2?: T | Hero2BlockSelect<T>;
         stat1?: T | Stat1BlockSelect<T>;
         stat2?: T | Stat2BlockSelect<T>;
+        googleMaps?: T | GoogleMapsBlockSelect<T>;
       };
   meta?:
     | T
@@ -1121,6 +1149,25 @@ export interface Stat2BlockSelect<T extends boolean = true> {
         id?: T;
       };
   description?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GoogleMapsBlock_select".
+ */
+export interface GoogleMapsBlockSelect<T extends boolean = true> {
+  zoom?: T;
+  places?:
+    | T
+    | {
+        name?: T;
+        address?: T;
+        latitude?: T;
+        longitude?: T;
+        image?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

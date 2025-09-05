@@ -3,6 +3,7 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
+import { TextColorFeature } from 'payload-lexical-typography'
 import { Block } from 'payload'
 
 export const Announcement1: Block = {
@@ -16,7 +17,12 @@ export const Announcement1: Block = {
       required: true,
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
-          return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()]
+          return [
+            ...rootFeatures,
+            FixedToolbarFeature(),
+            InlineToolbarFeature(),
+            TextColorFeature({ hideAttribution: true }),
+          ]
         },
       }),
     },

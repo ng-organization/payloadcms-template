@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
+import { Announcement1 } from '@/blocks/Announcements/Announcement1/config'
 import { FAQ1 } from '@/blocks/FAQ/FAQ1/config'
 import { FAQ2 } from '@/blocks/FAQ/FAQ2/config'
 import { FAQ3 } from '@/blocks/FAQ/FAQ3/config'
@@ -100,6 +101,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 Stat1,
                 Stat2,
                 GoogleMaps,
+                Announcement1,
               ],
               required: true,
               admin: {

@@ -5,6 +5,7 @@ import type { Page } from '@/payload-types'
 import { CTA1Block } from '@/blocks/CallToAction/CTA1/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { Announcement1Block } from './Announcements/Announcement1/Component'
 import { FAQ1Block } from './FAQ/FAQ1/Component'
 import { FAQ2Block } from './FAQ/FAQ2/Component'
 import { FAQ3Block } from './FAQ/FAQ3/Component'
@@ -38,6 +39,7 @@ const blockComponents = {
   stat1: Stat1Block,
   stat2: Stat2Block,
   googleMaps: GoogleMapsBlock,
+  announcement1: Announcement1Block,
 }
 
 export const RenderBlocks: React.FC<{

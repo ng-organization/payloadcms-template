@@ -8,6 +8,7 @@ import { Feature2 } from '@/blocks/Features/Feature2/config'
 import { GoogleMaps } from '@/blocks/GoogleMaps/config'
 import { Hero1 } from '@/blocks/Hero/Hero1/config'
 import { Hero2 } from '@/blocks/Hero/Hero2/config'
+import { Sections } from '@/blocks/Sections/config'
 import { Stat1 } from '@/blocks/Stats/Stat1/config'
 import { Stat2 } from '@/blocks/Stats/Stat2/config'
 import { Testimonial1 } from '@/blocks/Testimonials/Testimonial1/config'
@@ -102,6 +103,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 Stat2,
                 GoogleMaps,
                 Announcement1,
+                Sections,
               ],
               required: true,
               admin: {

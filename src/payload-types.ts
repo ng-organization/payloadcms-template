@@ -151,6 +151,7 @@ export interface Page {
     | Stat2Block
     | GoogleMapsBlock
     | Announcement1Block
+    | SectionsBlock
   )[];
   meta?: {
     title?: string | null;
@@ -646,6 +647,34 @@ export interface Announcement1Block {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionsBlock".
+ */
+export interface SectionsBlock {
+  types?:
+    | ('contentWithImage12Grid' | 'contentWithImage23Grid' | 'contentWithImage32Grid' | 'contentWithImageVerticalSplit')
+    | null;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  image: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'sections';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -878,6 +907,7 @@ export interface PagesSelect<T extends boolean = true> {
         stat2?: T | Stat2BlockSelect<T>;
         googleMaps?: T | GoogleMapsBlockSelect<T>;
         announcement1?: T | Announcement1BlockSelect<T>;
+        sections?: T | SectionsBlockSelect<T>;
       };
   meta?:
     | T
@@ -1203,6 +1233,17 @@ export interface GoogleMapsBlockSelect<T extends boolean = true> {
  */
 export interface Announcement1BlockSelect<T extends boolean = true> {
   announcement?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionsBlock_select".
+ */
+export interface SectionsBlockSelect<T extends boolean = true> {
+  types?: T;
+  content?: T;
+  image?: T;
   id?: T;
   blockName?: T;
 }
